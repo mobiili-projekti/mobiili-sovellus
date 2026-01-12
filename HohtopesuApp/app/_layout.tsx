@@ -1,22 +1,10 @@
 import { Stack } from "expo-router";
+import { useColorScheme } from '@/hooks/use-color-scheme';
+import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
 
 export default function RootLayout()
 {
-    return (
-        <Stack>
-            <Stack.Screen name="index" options={{ headerShown: false }} />
-            <Stack.Screen name="debug" options={{ title: "Debug" }} />
-
-/*
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
-*/
-
-// Ohitin (tabs) kokonaan, siellä oli templatella luodut infot.
-// laitoin toistaiseksi titlen jokaiselle sivulle, niin näkee millä sivulla on.
-
-export default function RootLayout() {
   const colorScheme = useColorScheme();
 
   return (
@@ -42,3 +30,4 @@ export default function RootLayout() {
     </ThemeProvider>
   );
 }
+
