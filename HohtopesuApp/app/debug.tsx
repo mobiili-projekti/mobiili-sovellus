@@ -1,25 +1,78 @@
-import { View, Text, Pressable } from "react-native";
-import { router } from "expo-router";
+import { View, Text, Button, StyleSheet, Pressable } from "react-native"
+import { router } from "expo-router"
 
-function DebugLink(props: { title: string; href: string })
-{
-    return (
-        <Pressable onPress={() => router.push(props.href)}>
-            <Text>{props.title}</Text>
-        </Pressable>
-    );
+export default function Debug() {
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Debug</Text>
+      <Pressable
+        style={styles.button}
+        onPress={() => router.push("/login")}
+      >
+        <Text style={styles.buttonText}>Login</Text>
+      </Pressable>
+      <Pressable
+        style={styles.button}
+        onPress={() => router.push("/map")}
+      >
+        <Text style={styles.buttonText}>Map</Text>
+      </Pressable>
+      <Pressable
+        style={styles.button}
+        onPress={() => router.push("/modal")}
+      >
+        <Text style={styles.buttonText}>Modal</Text>
+      </Pressable>
+      <Pressable
+        style={styles.button}
+        onPress={() => router.push("/now-washing")}
+      >
+        <Text style={styles.buttonText}>Now-Washing</Text>
+      </Pressable>
+      <Pressable
+        style={styles.button}
+        onPress={() => router.push("/register")}
+      >
+        <Text style={styles.buttonText}>Register</Text>
+      </Pressable>
+      <Pressable
+        style={styles.button}
+        onPress={() => router.push("/wash-confirmation")}
+      >
+        <Text style={styles.buttonText}>Wash-Confirmation</Text>
+      </Pressable>
+      <Pressable
+        style={styles.button}
+        onPress={() => router.push("/carwash-confirmation")}
+      >
+        <Text style={styles.buttonText}>Carwash-confirmation</Text>
+      </Pressable>
+    </View>
+  )
 }
 
-export default function DebugScreen()
-{
-    return (
-        <View>
-            <DebugLink title="Login" href="/login" />
-            <DebugLink title="Register" href="/register" />
-            <DebugLink title="Map" href="/map" />
-            <DebugLink title="Carwash Confirmation" href="/carwash-confirmation" />
-            <DebugLink title="Wash Confirmation" href="/wash-confirmation" />
-            <DebugLink title="Now Washing" href="/now-washing" />
-        </View>
-    );
-}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    padding: 20,
+    gap: 16,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  button: {
+    backgroundColor: "#2563eb",
+    padding: 16,
+    borderRadius: 8,
+  },
+  buttonText: {
+    color: "white",
+    textAlign: "center",
+    fontSize: 16,
+    fontWeight: "600",
+  }
+})
