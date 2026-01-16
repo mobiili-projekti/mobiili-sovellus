@@ -176,16 +176,44 @@ export default function MapScreen()
             {/* Right-side menu */}
             {menuOpen && (
                 <View style={styles.menu}>
-                    <Text>Etunimi Sukunimi</Text>
-                    <Text>Tilitiedot</Text>
-                    <Text>Kuukausisopimus</Text>
-                    <Text>Pesuhistoria</Text>
-                    <Text>Maksutiedot</Text>
-                    <Text>Asiakastuki</Text>
-                    <Text>Raportoi vika</Text>
-                    <Text>Ota yhteyttä asiakastukeen</Text>
+                    <View style={styles.menuHeader}>
+                        <Text style={styles.userName}>Etunimi Sukunimi</Text>
+                    </View>
+
+                    <View style={styles.menuItem}>
+                        <Text style={styles.icon}>👤</Text>
+                        <Text style={styles.menuText}>Tilitiedot</Text>
+                    </View>
+
+                    <View style={styles.menuItem}>
+                        <Text style={styles.icon}>🔁</Text>
+                        <Text style={styles.menuText}>Kuukausisopimus</Text>
+                    </View>
+
+                    <View style={styles.menuItem}>
+                        <Text style={styles.icon}>⏪</Text>
+                        <Text style={styles.menuText}>Pesuhistoria</Text>
+                    </View>
+
+                    <View style={styles.menuItem}>
+                        <Text style={styles.icon}>💳</Text>
+                        <Text style={styles.menuText}>Maksutiedot</Text>
+                    </View>
+
+                    <Text style={styles.sectionTitle}>Asiakaspalvelu ja tuki</Text>
+
+                    <View style={styles.menuItem}>
+                        <Text style={styles.icon}>⚠️</Text>
+                        <Text style={styles.menuText}>Raportoi vika</Text>
+                    </View>
+
+                    <View style={styles.menuItem}>
+                        <Text style={styles.icon}>📞</Text>
+                        <Text style={styles.menuText}>Ota yhteyttä Hohtopesuun</Text>
+                    </View>
                 </View>
             )}
+
 
             {!selectedWash && (
                 <Pressable
@@ -251,11 +279,45 @@ const styles = StyleSheet.create(
         position: "absolute",
         top: 0,
         right: 0,
-        width: Dimensions.get("window").width * 0.5,
+        width: Dimensions.get("window").width * 0.7,
         height: "100%",
         backgroundColor: "white",
-        padding: 20,
+        paddingTop: 60,
+        paddingHorizontal: 20,
         zIndex: 15
+    },
+    menuHeader:
+    {
+        marginBottom: 24
+    },
+    userName:
+    {
+        fontSize: 18,
+        fontWeight: "600"
+    },
+    menuItem:
+    {
+        flexDirection: "row",
+        alignItems: "center",
+        paddingVertical: 12
+    },
+    icon:
+    {
+        width: 32,
+        fontSize: 18
+    },
+    menuText:
+    {
+        fontSize: 16,
+        color: "#555"
+    },
+    sectionTitle:
+    {
+        marginTop: 24,
+        marginBottom: 12,
+        fontSize: 14,
+        fontWeight: "600",
+        color: "#000"
     },
     bottomSheet:
     {
