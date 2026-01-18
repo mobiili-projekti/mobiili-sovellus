@@ -14,7 +14,7 @@ export default function Debug() {
       </Pressable>
       <Pressable
         style={styles.button}
-        onPress={() => router.push("/map")}
+        onPress={() => router.push("/map-screen")}
       >
         <Text style={styles.buttonText}>Map</Text>
       </Pressable>

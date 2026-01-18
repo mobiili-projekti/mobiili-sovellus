@@ -19,7 +19,7 @@ export default function RootLayout()
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="debug" options={{ title: 'Debug' }} />
         <Stack.Screen name="login" options={{ title: 'Login' }} />
-        <Stack.Screen name="map" options={{ title: 'Map' }} />
+        <Stack.Screen name="map-screen" options={{ title: 'Map' }} />
         <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
         <Stack.Screen name="now-washing" options={{ title: 'Now-Washing' }} />
         <Stack.Screen name="register" options={{ title: 'Register' }} />
