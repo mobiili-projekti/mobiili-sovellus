@@ -11,7 +11,7 @@ export default function LoginScreen()
     const handleLogin = () => {
         if (username === "user" && password === "user") {
             setError("")
-            router.replace("/map")
+            router.replace("/map-screen")
         } else {
             setError("Virheellinen käyttäjätunnus tai salasana")
         }
