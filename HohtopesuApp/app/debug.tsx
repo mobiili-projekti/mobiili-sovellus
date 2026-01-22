@@ -48,6 +48,12 @@ export default function Debug() {
       >
         <Text style={styles.buttonText}>Carwash-confirmation</Text>
       </Pressable>
+      <Pressable
+        style={styles.button}
+        onPress={() => router.push("/wash-selection")}
+      >
+        <Text style={styles.buttonText}>Wash-Selection</Text>
+      </Pressable>
     </View>
   )
 }
