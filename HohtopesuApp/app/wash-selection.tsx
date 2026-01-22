@@ -10,7 +10,7 @@ export default function WashSelectionScreen(){
 
     const handleStartWash = () => {
         if (selectedProgram) {
-            router.push({
+            router.replace({
                 pathname: '/now-washing',
                 params: { 
                     programId: selectedProgram.id, 
