@@ -28,7 +28,7 @@ export default function CarwashConfirmationScreen()
                 style={styles.button}
                 onPress={() => router.push("/wash-confirmation")}
             >
-                <Text style={styles.buttonText}>Aloita</Text>
+                <Text style={styles.buttonText}>Valitse</Text>
             </Pressable>
         </View>
     );
@@ -69,6 +69,7 @@ const styles = StyleSheet.create(
     button:
     {
         marginTop: "auto",
+        marginBottom: 45,
         backgroundColor: "#2563eb",
         padding: 16,
         borderRadius: 8

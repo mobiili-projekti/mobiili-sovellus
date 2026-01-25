@@ -278,8 +278,8 @@ const styles = StyleSheet.create(
     },
     mapCard:
     {
-        height: "80%",
-        width: "90%",
+        height: "75%",
+        width: "95%",
         alignSelf: "center",
         marginTop: 1,
         borderRadius: 16,
@@ -350,7 +350,7 @@ const styles = StyleSheet.create(
     bottomSheet:
     {
         position: "absolute",
-        bottom: 0,
+        bottom: 45,
         width: Dimensions.get("window").width,
         backgroundColor: "white",
         padding: 20,
@@ -380,7 +380,7 @@ const styles = StyleSheet.create(
     closestButton:
     {
         position: "absolute",
-        bottom: 20,
+        bottom: 45,
         alignSelf: "center",
         backgroundColor: "#2563eb",
         paddingHorizontal: 24,
