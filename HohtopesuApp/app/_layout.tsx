@@ -16,15 +16,15 @@ export default function RootLayout()
         </Stack>
       */}
       <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="debug" options={{ title: 'Debug' }} />
-        <Stack.Screen name="login" options={{ title: 'Login' }} />
-        <Stack.Screen name="map-screen" options={{ title: 'Map' }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-        <Stack.Screen name="now-washing" options={{ title: 'Now-Washing' }} />
-        <Stack.Screen name="register" options={{ title: 'Register' }} />
-        <Stack.Screen name="wash-confirmation" options={{ title: 'Wash-Confirmation' }} />
-        <Stack.Screen name="carwash-confirmation" options={{ title: 'Carwash-Confirmation' }} />
+        <Stack.Screen name="index"                options={{ headerShown: false }} />
+        <Stack.Screen name="debug"                options={{ title: 'Debug' }} />
+        <Stack.Screen name="login"                options={{ title: 'Kirjaudu Hohtopesuun' }} />
+        <Stack.Screen name="map-screen"           options={{ title: 'Valitse pesula' }} />
+        <Stack.Screen name="modal"                options={{ presentation: 'modal', title: 'Modal' }} />
+        <Stack.Screen name="now-washing"          options={{ headerShown: false }} />
+        <Stack.Screen name="register"             options={{ title: 'Rekisteröidy' }} />
+        <Stack.Screen name="wash-confirmation"    options={{ title: 'Valitse pesuohjelma' }} />
+        <Stack.Screen name="carwash-confirmation" options={{ title: 'Vahvista pesula' }} />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>
