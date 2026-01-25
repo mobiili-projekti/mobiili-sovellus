@@ -1,14 +1,26 @@
 import { View, Text, StyleSheet } from "react-native";
 import { useEffect, useState } from "react";
-import { router } from "expo-router"
+import { router, useLocalSearchParams } from "expo-router"
 
-const harjaPesuAika = 15 * 60
+type nowWashingParams = {
+    programId: string
+    programName: string
+    durationSeconds: string
+}
 
 export default function NowWashingScreen()
 {
-    const [seconds, setSeconds] = useState<number>(harjaPesuAika)
+    const { programName, durationSeconds } = useLocalSearchParams<nowWashingParams>()
+    const initialSeconds = Number(durationSeconds)
+
+    const [seconds, setSeconds] = useState<number>(initialSeconds)
 
     useEffect(() => {
+        if(isNaN(initialSeconds)) {
+            router.replace("/map-screen")
+            return
+        }
+
         const interval = setInterval(() => {
             setSeconds((prev) => {
                 if(prev <= 0) {
@@ -30,7 +42,7 @@ export default function NowWashingScreen()
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Pesu Käynnissä</Text>
+            {programName && (<Text style={styles.title}>{programName} käynnissä</Text>)}
             <Text style={styles.timer}>{formattedTime}</Text>
         </View>
     );
