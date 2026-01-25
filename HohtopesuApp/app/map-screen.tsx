@@ -275,8 +275,8 @@ const styles = StyleSheet.create(
     },
     mapCard:
     {
-        height: "80%",
-        width: "90%",
+        height: "75%",
+        width: "95%",
         alignSelf: "center",
         marginTop: 20,
         borderRadius: 16,
@@ -347,7 +347,7 @@ const styles = StyleSheet.create(
     bottomSheet:
     {
         position: "absolute",
-        bottom: 0,
+        bottom: 45,
         width: Dimensions.get("window").width,
         backgroundColor: "white",
         padding: 20,
