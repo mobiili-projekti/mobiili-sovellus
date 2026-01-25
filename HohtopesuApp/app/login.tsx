@@ -1,6 +1,7 @@
 import { View, Text, TextInput, Pressable, StyleSheet, Alert } from "react-native";
 import { useState } from "react";
 import { router } from "expo-router"
+import { Image } from "expo-image";
 
 export default function LoginScreen()
 {
@@ -19,8 +20,11 @@ export default function LoginScreen()
 
     return (
         <View style={styles.container}>
+            <Image 
+                source={require('../assets/images/logo.png')}
+                style={styles.logo}
+            />
             <View style={styles.form}>
-                <Text style={styles.title}>HohtoPesu</Text>
                 <TextInput
                     style={styles.input}
                     placeholder="Sähköposti"
@@ -54,21 +58,21 @@ export default function LoginScreen()
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
+        justifyContent: "flex-start",
         padding: 24,
         gap: 12,
     },
-    form : {
-        marginTop: 100,
-        gap: 12,
-        marginBottom: 80,
+    logo: {
+        width: "100%",
+        aspectRatio: 1.5,
+        alignSelf: "center",
+        marginBottom: 20,
+        marginTop: 10,
     },
-    title: {
-        fontSize: 36,
-        fontWeight: "bold",
-        textAlign: "center",
-        marginBottom: 50,
-        backgroundColor: "#ccca"
+    form : {
+        marginTop: 10,
+        gap: 12,
+        marginBottom: 45,
     },
     input: {
         borderWidth: 1,
