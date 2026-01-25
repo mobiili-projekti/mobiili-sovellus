@@ -145,7 +145,18 @@ export default function MapScreen()
 
     return (
         <View style={styles.container}>
-            <MapView
+            {/* Hamburger button */}
+            <View style={styles.topBar}>
+            <Pressable
+                style={styles.hamburger}
+                onPress={() => setMenuOpen(!menuOpen)}
+            >
+                <Text style={styles.hamburgerText}>☰</Text>
+            </Pressable>
+            </View>
+
+            <View style={styles.mapCard}>
+                <MapView
                 ref={mapRef}
                 style={styles.map}
                 region={region}
@@ -164,18 +175,17 @@ export default function MapScreen()
                     />
                 ))}
             </MapView>
-
-            {/* Hamburger button */}
-            <Pressable
-                style={styles.hamburger}
-                onPress={() => setMenuOpen(!menuOpen)}
-            >
-                <Text style={styles.hamburgerText}>☰</Text>
-            </Pressable>
-
+            </View>
             {/* Right-side menu */}
             {menuOpen && (
                 <View style={styles.menu}>
+                    <Pressable
+                        onPress={() => setMenuOpen(false)}
+                        style={styles.closeButton}
+                    >
+                        <Text style={styles.closeText}>✕</Text>
+                    </Pressable>
+
                     <View style={styles.menuHeader}>
                         <Text style={styles.userName}>Etunimi Sukunimi</Text>
                     </View>
@@ -257,7 +267,25 @@ const styles = StyleSheet.create(
 {
     container:
     {
-        flex: 1
+        flex: 1,
+    },
+    topBar:
+    {
+        height: 60,
+        justifyContent: "center",
+        alignItems: "flex-end",
+        paddingHorizontal: 16,
+    },
+    mapCard:
+    {
+        height: "75%",
+        width: "95%",
+        alignSelf: "center",
+        marginTop: 1,
+        borderRadius: 16,
+        overflow: "hidden",
+        borderWidth: 1,
+        borderColor: "#ddd"
     },
     map:
     {
@@ -265,10 +293,7 @@ const styles = StyleSheet.create(
     },
     hamburger:
     {
-        position: "absolute",
-        top: 50,
-        right: 20,
-        zIndex: 20
+        alignSelf: "flex-end",
     },
     hamburgerText:
     {
@@ -288,6 +313,9 @@ const styles = StyleSheet.create(
     },
     menuHeader:
     {
+        flexDirection: "row",
+        alignItems: "flex-start",
+        justifyContent: "space-between",
         marginBottom: 24
     },
     userName:
@@ -322,7 +350,7 @@ const styles = StyleSheet.create(
     bottomSheet:
     {
         position: "absolute",
-        bottom: 0,
+        bottom: 45,
         width: Dimensions.get("window").width,
         backgroundColor: "white",
         padding: 20,
@@ -352,7 +380,7 @@ const styles = StyleSheet.create(
     closestButton:
     {
         position: "absolute",
-        bottom: 30,
+        bottom: 45,
         alignSelf: "center",
         backgroundColor: "#2563eb",
         paddingHorizontal: 24,
@@ -364,6 +392,22 @@ const styles = StyleSheet.create(
     {
         color: "white",
         fontWeight: "600"
+    },
+    closeButton:
+    {
+        position: "absolute",
+        top: 16,
+        right: 16,
+        width: 32,
+        height: 32,
+        justifyContent: "center",
+        alignItems: "center",
+        zIndex: 20
+    },
+    closeText:
+    {
+        fontSize: 22,
+        fontWeight: "600",
+        lineHeight: 22
     }
-
 });
