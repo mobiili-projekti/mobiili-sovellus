@@ -1,6 +1,7 @@
 import { View, Text, TextInput, Pressable, StyleSheet, Alert } from "react-native";
 import { useState } from "react";
 import { router } from "expo-router";
+import { Image } from "expo-image";
 
 export default function RegisterScreen()
 {
@@ -22,8 +23,11 @@ export default function RegisterScreen()
     }
     return (
         <View style={styles.container}>
+            <Image 
+                source={require('../assets/images/logo.png')}
+                style={styles.logo}
+            />
             <View style={styles.formRegister}>
-                <Text style={styles.title}>HohtoPesu</Text>
                 <TextInput 
                     style={styles.input} 
                     placeholder="Käyttäjänimi" 
@@ -68,12 +72,19 @@ export default function RegisterScreen()
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: "flex-start",
         padding: 24,
         gap: 12,
     },
+    logo: {
+        width: "100%",
+        aspectRatio: 1.5,
+        alignSelf: "center",
+        marginBottom: 20,
+        marginTop: 10,
+    },
     formRegister: {
-        marginTop: 100,
+        marginTop: 12,
         gap: 12,
         marginBottom: 80,
     },

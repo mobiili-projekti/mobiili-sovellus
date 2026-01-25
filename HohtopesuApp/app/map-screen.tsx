@@ -2,7 +2,8 @@ import { useEffect, useState, useRef } from "react";
 import { View, Text, Pressable, StyleSheet, Dimensions } from "react-native";
 import MapView, { Marker, Region } from "react-native-maps";
 import * as Location from "expo-location";
-import { router } from "expo-router";
+import { router, Stack } from "expo-router";
+import { Image } from "expo-image";
 
 type CarWash =
 {
@@ -144,17 +145,26 @@ export default function MapScreen()
 
 
     return (
+        <>
+        {/* Hamburger button */}
+        <Stack.Screen options={{
+            headerTitleAlign: 'center',
+            headerTitle: () => (
+                <Image 
+                    source={require('../assets/images/logotext.png')}
+                    style={{ width: 150, height: 40, resizeMode: 'contain' }} />
+            ), 
+            headerRight: () => (
+                <Pressable onPress={() => setMenuOpen((v) => !v)}
+                style={{ paddingHorizontal: 12, paddingVertical: 6 }}
+                hitSlop={10}>
+                <Text style={{ fontSize: 22 }}>☰</Text>
+                </Pressable>
+                ),  
+            }} 
+        />
         <View style={styles.container}>
-            {/* Hamburger button */}
-            <View style={styles.topBar}>
-            <Pressable
-                style={styles.hamburger}
-                onPress={() => setMenuOpen(!menuOpen)}
-            >
-                <Text style={styles.hamburgerText}>☰</Text>
-            </Pressable>
-            </View>
-
+            
             <View style={styles.mapCard}>
                 <MapView
                 ref={mapRef}
@@ -179,13 +189,6 @@ export default function MapScreen()
             {/* Right-side menu */}
             {menuOpen && (
                 <View style={styles.menu}>
-                    <Pressable
-                        onPress={() => setMenuOpen(false)}
-                        style={styles.closeButton}
-                    >
-                        <Text style={styles.closeText}>✕</Text>
-                    </Pressable>
-
                     <View style={styles.menuHeader}>
                         <Text style={styles.userName}>Etunimi Sukunimi</Text>
                     </View>
@@ -260,6 +263,7 @@ export default function MapScreen()
                 </View>
             )}
         </View>
+        </>
     );
 }
 
@@ -269,19 +273,12 @@ const styles = StyleSheet.create(
     {
         flex: 1,
     },
-    topBar:
-    {
-        height: 60,
-        justifyContent: "center",
-        alignItems: "flex-end",
-        paddingHorizontal: 16,
-    },
     mapCard:
     {
         height: "75%",
         width: "95%",
         alignSelf: "center",
-        marginTop: 1,
+        marginTop: 20,
         borderRadius: 16,
         overflow: "hidden",
         borderWidth: 1,
@@ -379,9 +376,8 @@ const styles = StyleSheet.create(
     },
     closestButton:
     {
-        position: "absolute",
-        bottom: 45,
         alignSelf: "center",
+        marginTop: 20,
         backgroundColor: "#2563eb",
         paddingHorizontal: 24,
         paddingVertical: 14,
@@ -392,17 +388,6 @@ const styles = StyleSheet.create(
     {
         color: "white",
         fontWeight: "600"
-    },
-    closeButton:
-    {
-        position: "absolute",
-        top: 16,
-        right: 16,
-        width: 32,
-        height: 32,
-        justifyContent: "center",
-        alignItems: "center",
-        zIndex: 20
     },
     closeText:
     {
