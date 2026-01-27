@@ -25,6 +25,7 @@ export default function RootLayout()
         <Stack.Screen name="register"             options={{ title: 'Rekisteröidy' }} />
         <Stack.Screen name="wash-confirmation"    options={{ title: 'Valitse pesuohjelma' }} />
         <Stack.Screen name="carwash-confirmation" options={{ title: 'Vahvista pesula' }} />
+        <Stack.Screen name="statistics"           options={{ title: 'Tilastot' }} />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>
