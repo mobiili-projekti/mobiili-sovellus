@@ -2,6 +2,7 @@ import { View, Text, TextInput, Pressable, StyleSheet, Alert } from "react-nativ
 import { useState } from "react";
 import { router } from "expo-router";
 import { Image } from "expo-image";
+import { theme } from "@/constants/theme";
 
 export default function RegisterScreen()
 {
@@ -96,20 +97,20 @@ const styles = StyleSheet.create({
         backgroundColor: "#ccca"
     },input: {
         borderWidth: 1,
-        borderColor: "#ccc",
+        borderColor: theme.colors.border,
         borderRadius: 8,
         padding: 12,
         fontSize:16,
-        backgroundColor: "#ccc"
+        backgroundColor: "#f7f7f7",
     },
     button: {
-        backgroundColor: "#2563eb",
+        backgroundColor: theme.colors.headerBackground,
         padding: 14,
         borderRadius: 8,
         marginTop: 12,
     },
     buttonText: {
-        color: "white",
+        color: theme.colors.headerText,
         textAlign: "center",
         fontSize: 16,
         fontWeight: "600",

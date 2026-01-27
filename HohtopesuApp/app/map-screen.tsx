@@ -4,6 +4,7 @@ import MapView, { Marker, Region } from "react-native-maps";
 import * as Location from "expo-location";
 import { router, Stack } from "expo-router";
 import { Image } from "expo-image";
+import { theme } from "@/constants/theme";
 
 type CarWash =
 {
@@ -364,7 +365,7 @@ const styles = StyleSheet.create(
     selectButton:
     {
         marginTop: 16,
-        backgroundColor: "#2563eb",
+        backgroundColor: theme.colors.primary,
         padding: 14,
         borderRadius: 8
     },
@@ -378,7 +379,7 @@ const styles = StyleSheet.create(
     {
         alignSelf: "center",
         marginTop: 20,
-        backgroundColor: "#2563eb",
+        backgroundColor: theme.colors.headerBackground,
         paddingHorizontal: 24,
         paddingVertical: 14,
         borderRadius: 24,
@@ -386,7 +387,7 @@ const styles = StyleSheet.create(
     },
     closestText:
     {
-        color: "white",
+        color: theme.colors.headerText,
         fontWeight: "600"
     },
     closeText:

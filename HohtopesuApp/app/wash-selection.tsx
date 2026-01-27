@@ -3,6 +3,7 @@ import { useState } from "react";
 import { router } from "expo-router";
 import { WashProgram, washPrograms } from "../types/wash-programs";
 import WashCard from "../components/wash-card";
+import { theme } from "@/constants/theme";
 
 export default function WashSelectionScreen(){
 
@@ -49,25 +50,26 @@ const styles = StyleSheet.create({
         gap: 12,
     },
     title: {
-        fontSize: 36,
+        color: theme.colors.text,
+        fontSize: 26,
         fontWeight: "bold",
         textAlign: "center",
         marginBottom: 20,
     },
     button: {
-        backgroundColor: "#2563eb",
+        backgroundColor: theme.colors.headerBackground,
         padding: 14,
         borderRadius: 8,
         marginTop: 12,
     },
     buttonText: {
-        color: "white",
+        color: theme.colors.headerText,
         textAlign: "center",
         fontSize: 16,
         fontWeight: "600",
     },
     error: {
-        color: "red",
+        color: theme.colors.danger,
         textAlign: "center",
         fontSize: 14,
     },
@@ -77,7 +79,7 @@ const styles = StyleSheet.create({
     },
     footerText: {
         fontSize: 14,
-        color: "#666",
+        color: theme.colors.text,
         textAlign: "center"
     },
     scrollView: {
