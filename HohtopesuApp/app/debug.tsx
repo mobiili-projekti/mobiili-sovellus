@@ -1,5 +1,6 @@
 import { View, Text, Button, StyleSheet, Pressable } from "react-native"
 import { router } from "expo-router"
+import { theme } from "@/constants/theme"
 
 export default function Debug() {
 
@@ -71,12 +72,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   button: {
-    backgroundColor: "#2563eb",
+    backgroundColor: theme.colors.headerBackground,
     padding: 16,
     borderRadius: 8,
   },
   buttonText: {
-    color: "white",
+    color: theme.colors.headerText,
     textAlign: "center",
     fontSize: 16,
     fontWeight: "600",

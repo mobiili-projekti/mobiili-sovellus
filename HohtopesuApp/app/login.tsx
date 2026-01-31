@@ -1,6 +1,8 @@
 import { View, Text, TextInput, Pressable, StyleSheet, Alert } from "react-native";
 import { useState } from "react";
 import { router } from "expo-router"
+import { Image } from "expo-image";
+import { theme } from "@/constants/theme";
 
 export default function LoginScreen()
 {
@@ -19,8 +21,11 @@ export default function LoginScreen()
 
     return (
         <View style={styles.container}>
+            <Image 
+                source={require('../assets/images/logo.png')}
+                style={styles.logo}
+            />
             <View style={styles.form}>
-                <Text style={styles.title}>HohtoPesu</Text>
                 <TextInput
                     style={styles.input}
                     placeholder="Sähköposti"
@@ -54,38 +59,38 @@ export default function LoginScreen()
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
+        justifyContent: "flex-start",
         padding: 24,
         gap: 12,
     },
-    form : {
-        marginTop: 100,
-        gap: 12,
-        marginBottom: 80,
+    logo: {
+        width: "100%",
+        aspectRatio: 1.5,
+        alignSelf: "center",
+        marginBottom: 20,
+        marginTop: 10,
     },
-    title: {
-        fontSize: 36,
-        fontWeight: "bold",
-        textAlign: "center",
-        marginBottom: 50,
-        backgroundColor: "#ccca"
+    form : {
+        marginTop: 10,
+        gap: 12,
+        marginBottom: 45,
     },
     input: {
         borderWidth: 1,
-        borderColor: "#ccc",
+        borderColor: theme.colors.border,
         borderRadius: 8,
         padding: 12,
         fontSize:16,
-        backgroundColor: "#ccc"
+        backgroundColor: "#f7f7f7"
     },
     button: {
-        backgroundColor: "#2563eb",
+        backgroundColor: theme.colors.headerBackground,
         padding: 14,
         borderRadius: 8,
         marginTop: 12,
     },
     buttonText: {
-        color: "white",
+        color: theme.colors.headerText,
         textAlign: "center",
         fontSize: 16,
         fontWeight: "600",
