@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet } from "react-native"
 import Svg, { Path, G } from "react-native-svg"
+import { theme } from "@/constants/theme"
 
 type PieChartData = {
   value: number
@@ -103,6 +104,6 @@ const styles = StyleSheet.create({
   },
   labelText: {
     fontSize: 14,
-    color :"#fff"
+    color: theme.colors.text,
   }
 })

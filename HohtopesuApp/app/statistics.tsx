@@ -1,6 +1,7 @@
 import BarChart from "@/components/charts/BarChart";
 import PieChart from "@/components/charts/PieChart";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { theme } from "@/constants/theme"
 
 export default function statistics() {
   return (
@@ -20,7 +21,7 @@ export default function statistics() {
         <PieChart
           data={[
             { value: 40, color: "#2563eb", label: "Testi1" },
-            { value: 30, color: "#22c55e", label: "Testi2" },
+            { value: 50, color: "#22c55e", label: "Testi2" },
             { value: 20, color: "#f59e0b", label: "Testi3" },
             { value: 10, color: "#ef4444", label: "Testi4" },
           ]}
@@ -41,19 +42,19 @@ const styles = StyleSheet.create({
     height: 300,
     borderRadius: 12,
     padding: 4,
-    backgroundColor: "#111",
+    backgroundColor: "#ebebeb",
     marginBottom: 12,
   },
   pieChart: {
     height: 390,
     borderRadius: 12,
     padding: 4,
-    backgroundColor: "#111",
+    backgroundColor: "#ebebeb",
     marginBottom: 12,
   },
   title: {
     fontSize: 16,
-    color: "#666",
+    color: theme.colors.text,
     padding: 4,
   }
 })
