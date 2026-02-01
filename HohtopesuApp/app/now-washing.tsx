@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import { useEffect, useState } from "react";
 import { router, useLocalSearchParams } from "expo-router"
+import { theme } from "@/constants/theme"
 
 type nowWashingParams = {
     programId: string
@@ -59,11 +60,11 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: "bold",
         marginBottom: 16,
-        color: "white"
+        color: theme.colors.text,
     },
     timer: {
         fontSize: 48,
         fontWeight: "bold",
-        color: "white"
+        color: theme.colors.text,
     },
 })

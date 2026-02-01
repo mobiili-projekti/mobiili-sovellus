@@ -214,6 +214,14 @@ export default function MapScreen()
                         <Text style={styles.menuText}>Maksutiedot</Text>
                     </View>
 
+                    <Pressable
+                        style={styles.menuItem}
+                        onPress={() => router.push("/statistics")}
+                    >
+                        <Text style={styles.icon}>📊</Text>
+                        <Text style={styles.menuText}>Tilastot</Text>
+                    </Pressable>
+
                     <Text style={styles.sectionTitle}>Asiakaspalvelu ja tuki</Text>
 
                     <View style={styles.menuItem}>
