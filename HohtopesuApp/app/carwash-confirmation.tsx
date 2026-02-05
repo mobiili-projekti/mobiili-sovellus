@@ -26,7 +26,7 @@ export default function CarwashConfirmationScreen()
 
             <Pressable
                 style={styles.button}
-                onPress={() => router.push("/wash-confirmation")}
+                onPress={() => router.push("/wash-selection")}
             >
                 <Text style={styles.buttonText}>Valitse</Text>
             </Pressable>
