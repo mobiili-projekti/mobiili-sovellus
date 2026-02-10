@@ -2,11 +2,22 @@ import { View, Text, StyleSheet } from "react-native";
 import { useEffect, useState } from "react";
 import { router, useLocalSearchParams } from "expo-router"
 import { theme } from "@/constants/theme"
+import * as Notifications from 'expo-notifications';
 
 type nowWashingParams = {
     programId: string
     programName: string
     durationSeconds: string
+}
+
+function scheduleWashCompleteNotification() {
+    Notifications.scheduleNotificationAsync({
+        content: {
+            title: "Pesu valmis",
+            body: `Autopesusi on valmis! Aja ulos.`,
+        },
+        trigger: null,
+    });
 }
 
 export default function NowWashingScreen()
@@ -18,6 +29,9 @@ export default function NowWashingScreen()
 
     useEffect(() => {
         if(isNaN(initialSeconds)) {
+
+            scheduleWashCompleteNotification()
+            
             router.replace("/map-screen")
             return
         }
