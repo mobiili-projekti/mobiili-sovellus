@@ -4,13 +4,18 @@ import { router } from "expo-router";
 import { WashProgram, washPrograms } from "../types/wash-programs";
 import WashCard from "../components/wash-card";
 import { theme } from "@/constants/theme";
+import LoadingCircle from "../components/loading-circle";
 
 export default function WashSelectionScreen(){
 
     const [selectedProgram, setSelectedProgram] = useState<WashProgram | null>(null);
+    const [loading, setLoading] = useState(false);
 
     const handleStartWash = () => {
         if (selectedProgram) {
+
+            setLoading(true);
+
             router.replace({
                 pathname: '/now-washing',
                 params: { 
@@ -23,6 +28,12 @@ export default function WashSelectionScreen(){
             Alert.alert("Valitse pesuohjelma ensin.");
         }
     };
+
+    if (loading)
+    {
+        return <LoadingCircle />;
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Valitse Pesuohjelma</Text>
