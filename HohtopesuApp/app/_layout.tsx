@@ -6,12 +6,6 @@ export default function RootLayout()
 {
   return (
     <>
-      {/*
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-        </Stack>
-      */}
       <Stack
         screenOptions={{
           headerStyle: { backgroundColor: theme.colors.headerBackground },
@@ -20,8 +14,7 @@ export default function RootLayout()
         }}
         >
         <Stack.Screen name="index"                options={{ headerShown: false }} />
-        <Stack.Screen name="debug"                options={{ title: 'Debug' }} />
-        <Stack.Screen name="login"                options={{ title: 'Kirjaudu Hohtopesuun' }} />
+        <Stack.Screen name="login"                options={{ title: '' }} />
         <Stack.Screen name="map-screen"           options={{ title: 'Valitse pesula' }} />
         <Stack.Screen name="modal"                options={{ presentation: 'modal', title: 'Modal' }} />
         <Stack.Screen name="now-washing"          options={{ headerShown: false }} />
