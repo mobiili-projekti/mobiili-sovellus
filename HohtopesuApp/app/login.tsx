@@ -4,18 +4,42 @@ import { router } from "expo-router"
 import { Image } from "expo-image";
 import { theme } from "@/constants/theme";
 
+const API_URL = process.env.EXPO_PUBLIC_API_URL
+
 export default function LoginScreen()
 {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
 
-    const handleLogin = () => {
-        if (username === "user" && password === "user") {
-            setError("")
+    const handleLogin = async () => {
+        if (!username || !password) {
+            setError("Täytä kaikki kentät")
+            return
+        } 
+
+        try {
+            const response = await fetch(`${API_URL}/auth/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email: username,
+                    password: password,
+                }),
+            })
+
+            if (!response.ok) {
+                const errorData = await response.json()
+                throw new Error(errorData.message || "Kirjautuminen epäonnistui")
+            }
+            const data = await response.json()
+            // Tallenna token ja käyttäjätiedot tarvittaessa
             router.replace("/map-screen")
-        } else {
-            setError("Virheellinen käyttäjätunnus tai salasana")
+        }
+        catch (error: any) {
+            setError(error.message || "Kirjautuminen epäonnistui")
         }
     }
 
