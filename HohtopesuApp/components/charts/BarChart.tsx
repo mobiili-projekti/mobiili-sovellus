@@ -16,7 +16,7 @@ export default function BarChart({
   labels = [],
   height = 200,
   barWidth = 30,
-  gap = 20,
+  gap = 25,
   barColor = "#2563eb",
   gridLines = 4,
 }: BarChartProps) {

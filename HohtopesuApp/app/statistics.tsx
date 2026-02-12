@@ -8,11 +8,11 @@ export default function statistics() {
     <View style={styles.container}>
     <ScrollView nestedScrollEnabled={true}>
       <View style={styles.barChart}>
-        <Text style={styles.title}>Pesujen käyttö</Text>
+        <Text style={styles.title}>Pesujesi määrä</Text>
         <ScrollView horizontal nestedScrollEnabled={true}>
           <BarChart
             data={[5, 12, 9, 7, 12, 9, 7, 12, 9, 7, 11, 15]}
-            labels={["Testi1", "Testi2", "Testi3", "Testi4", "Testi5", "Testi6", "Testi7", "Testi8", "Testi9", "Testi10", "Testi11", "Testi12"]}
+            labels={["Tammikuu", "Helmikuu", "Maaliskuu", "Huhtikuu", "Toukokuu", "Kesäkuu", "Heinäkuu", "Elokuu", "Syyskuu", "Lokakuu", "Marraskuu", "Joulukuu"]}
           />
         </ScrollView>
       </View>
@@ -20,10 +20,10 @@ export default function statistics() {
         <Text style={styles.title}>Käyttämäsi pesuohjelmat</Text>
         <PieChart
           data={[
-            { value: 40, color: "#2563eb", label: "Testi1" },
-            { value: 50, color: "#22c55e", label: "Testi2" },
-            { value: 20, color: "#f59e0b", label: "Testi3" },
-            { value: 10, color: "#ef4444", label: "Testi4" },
+            { value: 40, color: "#2563eb", label: "Harjapesu" },
+            { value: 50, color: "#22c55e", label: "Harjaton pesu" },
+            { value: 20, color: "#f59e0b", label: "Vahapesu" },
+            { value: 10, color: "#ef4444", label: "Luksuspesu" },
           ]}
         />
       </View>
