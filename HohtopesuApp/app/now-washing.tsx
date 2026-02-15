@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Alert, Pressable } from "react-native";
 import { useEffect, useState } from "react";
 import { router, useLocalSearchParams } from "expo-router"
 import { theme } from "@/constants/theme"
@@ -16,6 +16,28 @@ export default function NowWashingScreen()
 
     const [seconds, setSeconds] = useState<number>(initialSeconds)
 
+    const handleStopPress = () => {
+        Alert.alert(
+            "Lopeta pesu?",
+            "Haluatko varmasti keskeyttää pesun?",
+            [
+                {
+                    text: "Peruuta",
+                    style: "cancel"
+                },
+                {
+                    text: "Lopeta",
+                    style: "destructive",
+                    onPress: () => {
+                        setSeconds(0)
+                        router.replace("/map-screen")
+                    }
+                }
+            ]
+        )
+    }
+
+    /*
     useEffect(() => {
         if(isNaN(initialSeconds)) {
             router.replace("/map-screen")
@@ -34,6 +56,31 @@ export default function NowWashingScreen()
             })
         }, 1000)
         return () => clearInterval(interval)
+    },[]) */
+
+    useEffect(() => {
+        if(isNaN(initialSeconds)) {
+            router.replace("/map-screen")
+            return
+        }
+
+        const endTime = Date.now() + initialSeconds * 1000
+
+        const interval = setInterval(() => {
+            const remaining = Math.max(
+                0,
+                Math.floor((endTime - Date.now()) / 1000)
+            )
+
+            setSeconds(remaining)
+
+            if (remaining <= 0) {
+                clearInterval(interval)
+                router.replace("/map-screen")
+            }
+        }, 1000)
+
+        return () => clearInterval(interval)
     },[])
 
     const minuutit = Math.floor(seconds / 60)
@@ -43,8 +90,17 @@ export default function NowWashingScreen()
 
     return (
         <View style={styles.container}>
-            {programName && (<Text style={styles.title}>{programName} käynnissä</Text>)}
-            <Text style={styles.timer}>{formattedTime}</Text>
+            <View style={styles.content}>
+                {programName && (<Text style={styles.title}>{programName} käynnissä</Text>)}
+                <Text style={styles.timer}>{formattedTime}</Text>
+            </View>
+
+            <Pressable
+                style={styles.stopButton}
+                onPress={() => handleStopPress()}
+            >
+                <Text style={styles.stopText}>STOP</Text>
+            </Pressable>
         </View>
     );
 }
@@ -55,6 +111,11 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         padding: 20,
+    },
+    content: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
     },
     title: {
         fontSize: 24,
@@ -67,4 +128,16 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         color: theme.colors.text,
     },
+    stopButton: {
+        marginBottom: 20,
+        backgroundColor: "#e53935",
+        paddingVertical: 14,
+        paddingHorizontal: 40,
+        borderRadius: 12,
+    },
+    stopText: {
+        color: "white",
+        fontSize: 18,
+        fontWeight: "bold"
+    }
 })
