@@ -37,27 +37,6 @@ export default function NowWashingScreen()
         )
     }
 
-    /*
-    useEffect(() => {
-        if(isNaN(initialSeconds)) {
-            router.replace("/map-screen")
-            return
-        }
-
-        const interval = setInterval(() => {
-            setSeconds((prev) => {
-                if(prev <= 0) {
-                    clearInterval(interval)
-                    router.replace("/map-screen")
-                    return 0
-                } else {
-                    return prev - 1
-                }
-            })
-        }, 1000)
-        return () => clearInterval(interval)
-    },[]) */
-
     useEffect(() => {
         if(isNaN(initialSeconds)) {
             router.replace("/map-screen")
